@@ -1,6 +1,25 @@
 WITH source AS (
-    SELECT *
+    SELECT
+        CAST(supplier_ids AS INTEGER) AS supplier_id,
+        id,
+        product_code,
+        product_name,
+        description,
+        standard_cost,
+        list_price,
+        reorder_level,
+        target_level,
+        quantity_per_unit,
+        discontinued,
+        minimum_reorder_quantity,
+        category,
+        attachments
     FROM {{ source('northwind', 'products') }}
+    WHERE supplier_ids NOT LIKE '%;%' 
+      AND supplier_ids NOT LIKE '%,%'
 )
-SELECT *
+
+SELECT
+    *,
+    CURRENT_TIMESTAMP() AS ingestion_timestamp
 FROM source
