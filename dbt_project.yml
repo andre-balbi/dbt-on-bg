@@ -34,5 +34,11 @@ models:
     # Config indicated by + and applies to all files under models/example/
     staging:
       +enabled: true
-      +materialized: view
+      +materialized: table
       +schema: stg_northwind
+    warehouse:
+      +enabled: true
+      +materialized: table
+      +schema: dwh_northwind
+      dim_date:
+        +materialized: view
