@@ -1,9 +1,0 @@
-
-target/
-dbt_packages/
-logs/
-.venv
-.vscode
-profiles_default.yml
-.env
-cd_default.yml
