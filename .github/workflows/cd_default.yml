@@ -2,9 +2,8 @@ name: CD_action
 
 on:
   push:
-    branches: [main]
-  schedule:
-    - cron: "35 18 * * *"  # 15:35 BRT (18:35 UTC)
+    branches:
+      - main
 
 jobs:
   CD_job:
@@ -58,8 +57,11 @@ jobs:
 
     - name: Run dbt build
       run: |
-        dbt build --target prod
-
+        if [ -f "./manifest.json" ]; then
+          dbt build -s 'state:modified+' --state ./ --target prod
+        else
+          dbt build --target prod
+        fi
 
     - name: Copy new manifest.json to Google Cloud Storage 
       run: |
