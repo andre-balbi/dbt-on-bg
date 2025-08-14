@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_employee
+    columns:
+      - name: employee_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+                store_failures: true
+                schema: dq_failures

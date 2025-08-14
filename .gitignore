@@ -3,7 +3,5 @@ target/
 dbt_packages/
 logs/
 .venv
-pyproject.toml
-uv.lock
-.python-version
 .vscode
+profiles_default.yml
