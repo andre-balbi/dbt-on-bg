@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "35 18 * * *"  # 15:35 BRT (18:35 UTC)
+    - cron: "45 20 * * *"  # 17:45 BRT (20:45 UTC)
 
 jobs:
   CD_job:
