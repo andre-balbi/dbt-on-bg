@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_id
+        tests:
+          - not_null:
+              config:
+                severity: error
+                store_failures: true
+                schema: dq_failures
+          - relationships:
+              arguments:
+                to: ref('stg_customer')
+                field: id
+              config:
+                severity: error
+                store_failures: true
+                schema: dq_failures
