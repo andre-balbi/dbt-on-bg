@@ -5,3 +5,4 @@ logs/
 .venv
 .vscode
 profiles_default.yml
+.env
