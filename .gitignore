@@ -6,3 +6,4 @@ logs/
 .vscode
 profiles_default.yml
 .env
+cd_default.yml
